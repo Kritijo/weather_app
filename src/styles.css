@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+:root {
+    --bgColor: rgb(237, 233, 247);
+    --shadow: 3px 3px 3px rgb(0, 0, 0, 0.3);
+    --headerColour : rgb(13, 20, 42);
+    --colorOnCheck : rgb(141, 179, 249);
+    --colorBeforeCheck : rgb(96, 106, 170);
+}
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background:url("../images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--headerColour);
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    background : url("../images/bouncing_circles.svg");
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+input {
+    width: 20%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-shadow: var(--shadow);
+    font-weight: 500;
+}
+
+.weather-card {
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    grid-template-rows: 25px 1fr;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    background-color:white;
+    margin: 0px 10px;
+}
+
+.weather-card > *:not(:first-child) {
+    padding: 1em 5%;
+}
+
+.weather-card > *:not(.temp, .weather-icon){
+    grid-column: 1/-1;
+}
+
+.weather-icon {
+    align-self: center;
+    grid-column: 2/-1;
+    grid-row : 2/3;
+    width: 85px;
+    height: 85px;
+}
+
+.address{
+    background-color: #333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #ffffff;
+    padding: 3px 20px;
+}
+
+.temp {
+    grid-column: 1/2;
+    font-weight: bold;
+    font-size: 56px;
+}
+
+.condition{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+#tempToggle {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--colorBeforeCheck);
+    border-radius: 28px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: var(--shadow);
+}
+
+.slider .unit {
+    position: absolute;
+    left: 8px;
+    bottom:6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--colorOnCheck);
+}
+
+input:checked + .slider .unit {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
