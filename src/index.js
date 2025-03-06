@@ -82,6 +82,7 @@ function weatherCard() {
 }
 
 function Eventlistners() {
+    const form = document.querySelector("form");
     const input = document.querySelector("input");
     let tempUnit = "uk";
 
@@ -90,6 +91,15 @@ function Eventlistners() {
             getWeatherData(input.value, tempUnit);
         }
     });
+
+    //mobile
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();  
+        if (input.value.trim() !== "") {
+            getWeatherData(input.value, tempUnit);
+        }
+    });
+
 
     const toggle = document.getElementById("tempToggle");
     const unitDisplay = document.querySelector(".slider .unit");

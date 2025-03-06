@@ -10,6 +10,7 @@
     --colorOnCheck : rgb(141, 179, 249);
     --colorBeforeCheck : rgb(96, 106, 170);
 }
+
 body {
     height: 100vh;
     display: flex;
@@ -39,8 +40,13 @@ body {
     background-repeat: no-repeat;
 }
 
+form{
+    display:flex;
+    width: 22.8%;
+}
+
 input {
-    width: 20%;
+    width: 100%;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -138,4 +144,10 @@ input:checked + .slider .unit {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+@media screen and (max-width: 850px) {
+    form{
+        width: 50%;
+    }
 }
